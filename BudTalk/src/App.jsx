@@ -1,7 +1,7 @@
 import { useState } from "react";
 import  './App.css';
 import CategoryFilter from "./Components/CategoryFilter";
-
+import StrainList from "./Components/StrainList";
 
 function App() {
   const [ category, setCategory ] = useState("all");
@@ -18,6 +18,9 @@ function App() {
         category={ category }
         setCategory={ setCategory }
       />
+      <StrainList />
+
+      <StrainList categoryActive={ category } />
     </main>
   )
 }
