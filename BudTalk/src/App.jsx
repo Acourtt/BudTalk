@@ -18,7 +18,6 @@ function App() {
         category={ category }
         setCategory={ setCategory }
       />
-      <StrainList />
 
       <StrainList categoryActive={ category } />
     </main>
