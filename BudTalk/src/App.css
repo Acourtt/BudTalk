@@ -83,6 +83,7 @@ section p {
   align-items: flex-start;
   gap: 12px;
   padding: 24px;
+  min-height: 420px;
   border: 1px solid #343640;
   border-radius: 16px;
   background-color: #1b1c24;
@@ -126,6 +127,133 @@ section p {
   font-size: 12px;
   text-transform: capitalize;
 }
+
+.site-header {
+  text-align: center;
+  padding: 32px 0;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #343d38;
+}
+
+.site-header h1 {
+  margin-bottom: 8px;
+  color: #b5c9b8;
+  font-size: 48px;
+  letter-spacing: 2px;
+}
+
+.site-header p {
+  margin: 0;
+  color: #b8c2ba;
+  letter-spacing: 1px;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 26px;
+  margin-top: 28px;
+}
+
+.main-nav a {
+  color: #d5ded7;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.main-nav a:hover {
+  color: #b5c9b8;
+}
+
+.hero {
+  position: relative;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  padding: 60px;
+  margin-bottom: 60px;
+  background-color: #171c19;
+  border: 1px solid #343d38;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.hero-images {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero-image {
+  position: absolute;
+  width: 32%;
+  height: 48%;
+  object-fit: cover;
+  border-radius: 3px;
+  opacity: 0.9;
+}
+
+.hero-image-left {
+  left: 5%;
+  top: 10%;
+}
+
+.hero-image-right {
+  right: 5%;
+  bottom: 10%;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-eyebrow {
+  color: #b5c9b8;
+  font-size: 12px;
+  letter-spacing: 3px;
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  color: #e5ebe5;
+  font-size: clamp(48px, 7vw, 88px);
+  line-height: 0.98;
+  letter-spacing: -3px;
+  margin:0 0 24px;
+}
+
+.hero-description {
+  max-width: 440px;
+  margin: 0 auto;
+  color: #b8c2ba;
+  line-height: 1.8;
+}
+
+.hero-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+  color: #c2d5c3;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.hero-link span {
+  font-size: 24px;
+  transition: transform 0.2s ease;
+}
+
+.hero-link:hover span {
+  transform: translateX(6px);
+}
+
 
 @media (max-width: 700px) {
   .strain-grid {

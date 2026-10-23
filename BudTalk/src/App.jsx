@@ -9,10 +9,41 @@ function App() {
 
   return (
     <main>
-      <header>
-        <h1>BudTalk</h1>
-        <p>Discover • Share • Experience</p>
-      </header>
+      <section className="hero" id="inicio">
+        <div className="hero-images">
+          <img
+            src="/images/hero-leaves.jpg"
+            alt="Detalle botático"
+            className="hero-image hero-image-left"
+          />
+
+          <img
+            src="/images/hero-bud.jpg"
+            alt="Primer plano de una flor de cannabis"
+            className="hero-image hero-image-right"
+          />
+        </div>
+        <div className="hero-content">
+          <p className="hero-eyebrow">WELCOME TO BUDTALK</p>
+
+          <h1>
+            Discover.
+            <br/>
+            Share.
+            <br/>
+            Experience.
+          </h1>
+
+          <p className="hero-description">
+            Explore varieties, exchange experiences 
+            and discover a community built around cannabis.
+          </p>
+
+          <a className="hero-link" href="#explorar">
+            Explore BudTalk <span>→</span>
+          </a>
+        </div>
+      </section>
 
       <CategoryFilter
         category={ category }
