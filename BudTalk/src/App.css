@@ -129,10 +129,73 @@ section p {
 }
 
 .site-header {
-  text-align: center;
-  padding: 32px 0;
-  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  margin-bottom: 20px;
   border-bottom: 1px solid #343d38;
+}
+
+.site-logo {
+  color: #b5c9b8;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+.menu-toggle {
+  padding: 10px 16px;
+  border: 1px solid #526256;
+  border-radius: 4px;
+  color: #e5ebe5;
+  background: transparent;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+.menu-toggle:hover {
+  background: #28332b;
+  transform: none;
+}
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+  background: rgb(0 0 0 / 65%);
+}
+
+.side-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: min(380px, 88vw);
+  height: 100%;
+  padding: 90px 32px 32px;
+  background: #171c19;
+  border-left: 1px solid #343d38;
+}
+
+.menu-eyebrow {
+  margin: 0;
+  color: #b5c9b8;
+  font-size: 11px;
+  letter-spacing: 3px;
+}
+
+.side-menu a {
+  color: #e5ebe5;
+  font-size: 22px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.side-menu a:hover {
+  color: #b5c9b8;
 }
 
 .site-header h1 {

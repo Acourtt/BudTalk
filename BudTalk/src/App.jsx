@@ -5,9 +5,53 @@ import StrainList from "./Components/StrainList";
 
 function App() {
   const [category, setCategory] = useState("all");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <main>
+      <header className="site-header">
+        <a href="#inicio" className="site-logo">
+          BudTalk
+        </a>
+
+        <button
+          className="menu-toggle"
+          type="button"
+          aria-expanded={isMenuOpen}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? "CLOSE ×" : "MENU ☰"}
+        </button>
+      </header>
+      {isMenuOpen && (
+
+      <div 
+        className="menu-overlay"
+        onClick={() => setIsMenuOpen(false)}  
+      >
+        <nav 
+          className="side-menu"
+          aria-label="Navegación principal"
+          onClick={(event) => event.stopPropagation()}
+        >
+          <p className="menu-eyebrow">EXPLORE BUDTALK</p>
+
+          <a 
+            href="#inicio" 
+            onClick={() => setIsMenuOpen(false)}>
+            Inicio
+          </a>
+
+          <a 
+            href="#explorar" 
+            onClick={() => setIsMenuOpen(false)}>
+            Explorar variedades
+          </a>
+        </nav>
+      </div>
+      )}
+
+
       <section className="hero" id="inicio">
         <div className="hero-leaf">
           <img
@@ -34,7 +78,7 @@ function App() {
               built around cannabis.
             </p>
 
-            <a className="hero-link" href="#explorar"> 
+            <a className="hero-link" href="#explorar">
               Explore BudTalk <span>→</span>
             </a>
           </div>
@@ -46,10 +90,15 @@ function App() {
           />
         </div>
       </section>
-
-      <CategoryFilter category={category} setCategory={setCategory} />
+      <div id="explorar">
+        <CategoryFilter 
+          category={{category}}
+          setCategory={setCategory}
+        />
 
       <StrainList categoryActive={category} />
+      </div>
+
     </main>
   );
 }
