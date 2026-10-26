@@ -9,50 +9,51 @@ function App() {
 
   return (
     <main>
-      <header className="site-header">
-        <a href="#inicio" className="site-logo">
-          BudTalk
-        </a>
-
-        <button
-          className="menu-toggle"
-          type="button"
-          aria-expanded={isMenuOpen}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          {isMenuOpen ? "CLOSE ×" : "MENU ☰"}
-        </button>
-      </header>
-      {isMenuOpen && (
-
-      <div 
-        className="menu-overlay"
-        onClick={() => setIsMenuOpen(false)}  
-      >
-        <nav 
-          className="side-menu"
-          aria-label="Navegación principal"
-          onClick={(event) => event.stopPropagation()}
-        >
-          <p className="menu-eyebrow">EXPLORE BUDTALK</p>
-
-          <a 
-            href="#inicio" 
-            onClick={() => setIsMenuOpen(false)}>
-            Inicio
-          </a>
-
-          <a 
-            href="#explorar" 
-            onClick={() => setIsMenuOpen(false)}>
-            Explorar variedades
-          </a>
-        </nav>
-      </div>
-      )}
-
-
       <section className="hero" id="inicio">
+        <header className="site-header">
+          <a href="#inicio" className="site-logo">
+            BudTalk
+          </a>
+
+          <button
+            className="menu-toggle"
+            type="button"
+            aria-expanded={isMenuOpen}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? "CLOSE ×" : "MENU ☰"}
+          </button>
+        </header>
+
+        {isMenuOpen && (
+          <div
+            className="menu-overlay"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <nav
+              className="side-menu"
+              aria-label="Navegación principal"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <p className="menu-eyebrow">EXPLORE BUDTALK</p>
+
+              <a
+                href="#inicio"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Inicio
+              </a>
+
+              <a
+                href="#explorar"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Explorar variedades
+              </a>
+            </nav>
+          </div>
+        )}
+
         <div className="hero-leaf">
           <img
             src="/images/hero-leaves.jpg"
@@ -74,8 +75,8 @@ function App() {
             </h1>
 
             <p className="hero-description">
-              Explore varieties, exchange experiences and discover a community
-              built around cannabis.
+              Explore varieties, exchange experiences and discover
+              a community built around cannabis.
             </p>
 
             <a className="hero-link" href="#explorar">
@@ -90,15 +91,15 @@ function App() {
           />
         </div>
       </section>
+
       <div id="explorar">
-        <CategoryFilter 
-          category={{category}}
+        <CategoryFilter
+          category={category}
           setCategory={setCategory}
         />
 
-      <StrainList categoryActive={category} />
+        <StrainList categoryActive={category} />
       </div>
-
     </main>
   );
 }
