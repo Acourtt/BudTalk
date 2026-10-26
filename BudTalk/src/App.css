@@ -52,22 +52,22 @@ section p {
 
 .category-filters button {
   padding: 10px 20px;
-  border: 1px solid #343640;
+  border: 1px solid #526256;
   border-radius: 999px;
   background-color: transparent;
-  color: #f5f5f5;
+  color: #d5ded7;
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .category-filters button:hover {
-  border-color: #a5b4fc;
+  border-color: #b5c9b8;
 }
 
 .category-filters button.active {
-  background-color: #a5b4fc;
-  border-color: #a5b4fc;
-  color: #171821
+  background-color: #b5c9b8;
+  border-color: #b5c9b8;
+  color: #171c19
 }
 
 .strain-grid {
@@ -84,15 +84,15 @@ section p {
   gap: 12px;
   padding: 24px;
   min-height: 420px;
-  border: 1px solid #343640;
+  border: 1px solid #343d38;
   border-radius: 16px;
-  background-color: #1b1c24;
+  background-color: #1b211c;
   transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
 .strain-card:hover {
   transform: translateY(-4px);
-  border-color: #a5b4fc;
+  border-color: #b5c9b8;
 }
 
 .strain-card h3 {
@@ -121,9 +121,9 @@ section p {
 .strain-card span {
   margin-top: auto;
   padding: 6px 12px;
-  border: 1px solid #454759;
+  border: 1px solid #526256;
   border-radius: 999px;
-  color: #c7caff;
+  color: #b5c9b8;
   font-size: 12px;
   text-transform: capitalize;
 }
@@ -230,9 +230,16 @@ section p {
 }
 
 .hero {
+  min-height: calc(100vh - 80px);
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: center;
   gap: 12px;
+  padding: 24px;
+  margin-bottom: 60px;
+  background-color: #171c19;
+  border: 1px solid #343d38;
+  border-radius: 4px;
 }
 
 .hero-leaf {
@@ -244,6 +251,14 @@ section p {
   flex-direction: column;
   gap: 20px;
   min-width: 0;
+}
+
+.hero-image {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  border: 1px solid #343d38;
+  border-radius: 8px;
 }
 
 .hero-image-left {
@@ -308,14 +323,70 @@ section p {
 }
 
 
-@media (max-width: 700px) {
-  .strain-grid {
+@media (max-width: 950px) {
+  .hero {
     grid-template-columns: 1fr;
+    min-height: auto;
+    padding: 24px;
+  }
+
+  .hero-image-left {
+    height: 380px;
+  }
+
+  .hero-image-right {
+    height: 260px;
+  }
+
+  .hero-content {
+    padding: 16px 0;
+  }
+
+  .strain-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (min-width: 701px) and (max-width: 950px) {
+@media (max-width: 600px) {
+    main {
+    padding: 20px 12px;
+  }
+
+  .hero {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .hero-image-left {
+    height: 300px;
+  }
+
+  .hero-image-right {
+    height: 200px;
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 10vw, 52px);
+    letter-spacing: -1.5px;
+  }
+
+  .hero-description {
+    font-size: 14px;
+  }
+
+  .site-logo {
+    font-size: 24px;
+  }
+
   .strain-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
+  }
+
+  .strain-card {
+    min-height: auto;
+  }
+
+  .strain-card img {
+    height: 240px;
   }
 }
