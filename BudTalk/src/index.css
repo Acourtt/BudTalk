@@ -51,7 +51,13 @@
 }
 
 body {
+  box-sizing: border-box;
   margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #111612;
+  color: #e5ebe5;
+  font-family: "DM Sans", sans-serif;
 }
 
 #root {
