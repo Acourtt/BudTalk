@@ -248,11 +248,11 @@ section p {
   box-sizing: border-box;
   min-height: calc(100vh - 80px);
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: 1.05fr 0.95fr;
   grid-template-rows: auto 1fr;
   align-items: center;
-  gap: 20px 24px;
-  padding: 24px;
+  gap: 24px 32px;
+  padding: 28px;
   margin-bottom: 60px;
   background-color: #171c19;
   border: 1px solid #343d38;
@@ -261,12 +261,14 @@ section p {
 
 .hero-leaf {
   min-width: 0;
+  display: flex;
+  align-items: stretch;
 }
 
 .hero-right {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
   min-width: 0;
 }
 
@@ -284,13 +286,13 @@ section p {
 
 .hero-image-left {
   width: 100%;
-  height: 520px;
+  height: 560px;
   object-fit: cover;
 }
 
 .hero-image-right {
   width: 100%;
-  height: 220px;
+  height: 280px;
   object-fit: cover;
 }
 
