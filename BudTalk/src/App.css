@@ -1,10 +1,12 @@
+/* 1. Estilos generales */
+
 main {
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
   font-family: "DM Sans", sans-serif;
 }
-
+ 
 header {
   margin-bottom: 60px;
 }
@@ -70,6 +72,8 @@ section p {
   border-color: #b5c9b8;
   color: #171c19
 }
+
+/* 2. Catálogo */ 
 
 .strain-grid {
   display: grid;
@@ -138,6 +142,8 @@ section p {
   font-size: 12px;
   text-transform: capitalize;
 }
+
+/* 3. Cabecera y menú */
 
 .site-header {
   display: flex;
@@ -251,6 +257,8 @@ section p {
   color: #b5c9b8;
 }
 
+/* 4. Hero */
+
 .hero {
   box-sizing: border-box;
   min-height: calc(100vh - 80px);
@@ -363,74 +371,7 @@ section p {
   transform: translateX(6px);
 }
 
-
-@media (max-width: 950px) {
-  .hero {
-    grid-template-columns: 1fr;
-    min-height: auto;
-    padding: 24px;
-  }
-
-  .hero-image-left {
-    height: 380px;
-  }
-
-  .hero-image-right {
-    height: 260px;
-  }
-
-  .hero-content {
-    padding: 16px 0;
-  }
-
-  .strain-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 600px) {
-    main {
-    padding: 20px 12px;
-  }
-
-  .hero {
-    padding: 16px;
-    gap: 12px;
-  }
-
-  .hero-image-left {
-    height: 300px;
-  }
-
-  .hero-image-right {
-    height: 200px;
-  }
-
-  .hero h1 {
-    font-size: clamp(36px, 10vw, 52px);
-    letter-spacing: -1.5px;
-  }
-
-  .hero-description {
-    font-size: 14px;
-  }
-
-  .site-logo {
-    font-size: 24px;
-  }
-
-  .strain-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .strain-card {
-    min-height: auto;
-  }
-
-  .strain-card img {
-    height: 240px;
-  }
-}
+/* 5. Comunidad y formulario */
 
 .community-section {
   margin: 72px 0 40px;
@@ -457,7 +398,7 @@ section p {
 .community-description {
   max-width: 560px;
   margin: 0;
-  color: #b8cb2a;
+  color: #b8c2ba;
   line-height: 1.7;
 }
 
@@ -478,7 +419,7 @@ section p {
   border-radius: 14px;
   background-color: #1b211c;
   transition: 
-    tranform 0.2s ease,
+    transform 0.2s ease,
     border-color 0.2s ease,
     box-shadow 0.2s ease;
   ;
@@ -526,6 +467,134 @@ section p {
   font-size: 12px;
 }
 
+.post-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 760px;
+  margin: 24px auto 0;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #1b211c;
+}
+
+.post-form input,
+.post-form textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #526256;
+  border-radius: 8px;
+  background-color: #111612;
+  color: #e5ebe5;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.post-form textarea {
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.post-form input::placeholder,
+.post-form textarea::placeholder {
+  color: #9da99f;
+}
+
+.post-form input:focus,
+.post-form textarea:focus {
+  outline: 1px solid #b5c9b8;
+  border-color: #b5c9b8;
+}
+
+.post-form button {
+  align-self: flex-end;
+  padding: 10px 20px;
+  border: 1px solid #b5c9b8;
+  border-radius: 8px;
+  background-color: #b5c9b8;
+  color: #171c19;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+.post-form button:hover {
+  background-color: #c7d7c9;
+  transform: translateY(-2px);
+}
+
+
+/* 6. Responsive: al final;'pantallas medianas */
+
+@media (max-width: 950px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding: 24px;
+  }
+
+  .hero-image-left {
+    height: 380px;
+  }
+
+  .hero-image-right {
+    height: 260px;
+  }
+
+  .hero-content {
+    padding: 16px 0;
+  }
+
+  .strain-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Ajustes para móviles */
+
+@media (max-width: 600px) {
+    main {
+    padding: 20px 12px;
+  }
+
+  .hero {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .hero-image-left {
+    height: 300px;
+  }
+
+  .hero-image-right {
+    height: 200px;
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 10vw, 52px);
+    letter-spacing: -1.5px;
+  }
+
+  .hero-description {
+    font-size: 14px;
+  }
+
+  .site-logo {
+    font-size: 24px;
+  }
+
+  .strain-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .strain-card {
+    min-height: auto;
+  }
+
+  .strain-card img {
+    height: 240px;
+  }
+}
 
 /* responsive community feed */
 

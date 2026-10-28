@@ -1,5 +1,8 @@
+import { useState } from "react";
+
+
 function CommunityFeed() {
-    const posts = [
+    const [posts, setPosts] = useState([
         {
             id: 1,
             title: "¿Qué opinan de Blue Dream?",
@@ -27,7 +30,36 @@ function CommunityFeed() {
             strain: "General",
             replies: 2,
         }
-    ];
+    ]);
+
+    const [title, setTitle] = useState("");
+    const [content, setContent] = useState("");
+
+    function handleSubmit(event){
+        event.preventDefault();
+
+        const cleanTitle = title.trim();
+        const cleanContent = content.trim();
+
+        if (!cleanTitle || !cleanContent) {
+            return;
+        }
+
+        const newPost = {
+            id: Date.now(),
+            title: cleanTitle,
+            content: cleanContent,
+            author: "Tú",
+            strain: "General",
+            replies: 0,
+        };
+
+        setPosts((currentPosts) => [newPost, ...currentPosts]);
+
+        setTitle("");
+        setContent("");
+
+    }
 
     return (
         <section className="community-section" id="comunidad">
@@ -40,6 +72,28 @@ function CommunityFeed() {
                 Comparte opiniones y participa en las conversaciones 
                 de nuestra comunidad.
             </p>
+
+            <form className="post-form" onSubmit={handleSubmit}>
+                <input 
+                    type="text"
+                    placeholder="Título de tu publicación"
+                    value={title}
+                    onChange={(event) => setTitle(event.target.value)}
+                    maxLength={100}
+                    required
+                />
+
+                <textarea 
+                    placeholder="¿Qué quieres compartir con la comunidad?"
+                    value={content}
+                    onChange={(event) => setContent(event.target.value)}
+                    rows={4}
+                    maxLength={1000}
+                    required
+                />
+
+                <button type="submit">Publicar</button>
+            </form>
 
             <div className="post-list">
                 {posts.map((post) => (
