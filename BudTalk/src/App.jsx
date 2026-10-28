@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import CategoryFilter from "./Components/CategoryFilter";
 import StrainList from "./Components/StrainList";
+import CommunityFeed from "./Components/CommunityFeed";
 
 function App() {
   const [category, setCategory] = useState("all");
@@ -100,6 +101,8 @@ function App() {
 
         <StrainList categoryActive={category} />
       </div>
+      
+      <CommunityFeed />
     </main>
   );
 }
