@@ -479,6 +479,7 @@ section p {
 }
 
 .post-form input,
+.post-form select,
 .post-form textarea {
   box-sizing: border-box;
   width: 100%;
@@ -502,6 +503,7 @@ section p {
 }
 
 .post-form input:focus,
+.post-form select:focus,
 .post-form textarea:focus {
   outline: 1px solid #b5c9b8;
   border-color: #b5c9b8;

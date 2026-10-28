@@ -34,6 +34,7 @@ function CommunityFeed() {
 
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
+    const [strain, setStrain] = useState("General");
 
     function handleSubmit(event){
         event.preventDefault();
@@ -50,7 +51,7 @@ function CommunityFeed() {
             title: cleanTitle,
             content: cleanContent,
             author: "Tú",
-            strain: "General",
+            strain: strain,
             replies: 0,
         };
 
@@ -58,6 +59,7 @@ function CommunityFeed() {
 
         setTitle("");
         setContent("");
+        setStrain("General")
 
     }
 
@@ -82,6 +84,22 @@ function CommunityFeed() {
                     maxLength={100}
                     required
                 />
+                
+                <select
+                    value={strain}
+                    onChange={(event) => setStrain(event.target.value)}
+                >
+                    <option value="General">General</option>
+                    <option value="Blue Dream">Blue Dream</option>
+                    <option value="Northern Lights">Northern Lights</option>
+                    <option value="Pineapple Express">Pineapple Express</option>
+                    <option value="OG Kush">OG Kush</option>
+                    <option value="White Widow">White Widow</option>
+                    <option value="Gorilla Glue #4">Gorilla Glue #4</option>
+                    <option value="Purple Haze">Purple Haze</option>
+                    <option value="Gelato">Gelato</option>
+                    <option value="Amnesia Haze">Amnesia Haze</option>
+                </select>
 
                 <textarea 
                     placeholder="¿Qué quieres compartir con la comunidad?"
