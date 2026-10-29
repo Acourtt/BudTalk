@@ -75,6 +75,11 @@ function CommunityFeed() {
                 de nuestra comunidad.
             </p>
 
+            <p className="post-count">
+                {posts.length}{" "}
+                {posts.length === 1 ? "publicació" : "publicaciones"} en la comunidad
+            </p>
+
             <form className="post-form" onSubmit={handleSubmit}>
                 <input 
                     type="text"
