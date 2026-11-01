@@ -87,6 +87,12 @@ function CommunityFeed() {
 
     }
 
+    function handleDelete(postId) {
+        setPosts((currentPosts) => 
+        currentPosts.filter((post) => post.id !== postId)
+        );
+    }
+
     return (
         <section className="community-section" id="comunidad">
             <p className="community-eyebrow">BUDTALK COMMUNITY</p>
@@ -154,6 +160,12 @@ function CommunityFeed() {
                         <div className="post-footer">
                             <span>Por {post.author}</span>
                             <span>{post.replies} respuestas</span>
+                            <button 
+                                type="button"
+                                onClick={() => handleDelete(post.id)}
+                                >
+                                Eliminar
+                            </button>
                         </div>
                     </article>
                 ))}
