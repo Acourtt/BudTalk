@@ -88,10 +88,19 @@ function CommunityFeed() {
     }
 
     function handleDelete(postId) {
+        const confirmed = window.confirm(
+            "¿Seguro que deseas eliminar esta publicación?"
+        );
+
+        if (!confirmed) {
+            return;
+        }
+        
         setPosts((currentPosts) => 
         currentPosts.filter((post) => post.id !== postId)
         );
     }
+
 
     return (
         <section className="community-section" id="comunidad">
