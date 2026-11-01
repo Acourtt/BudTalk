@@ -1,40 +1,64 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
+const initialPosts = [
+    {
+        id: 1,
+        title: "¿Que opinan de Blue Dream?",
+        content:
+            "Quiero conocer las experiecias y opiniones de la comunidad sobre esta variedad.",
+        author: "Usuario demo",
+        strain: "Blue Dream",
+        replies: 8,
+    },
+    {
+        id: 2,
+        title: "Compartamos nuestras experiencias",
+        content:
+            "¿Qué aspectos tienen en cuenta al comprar distintas variedades?",
+        author: "Usuario demo",
+        strain: "Northern Lights",
+        replies: 5,
+    },
+    {
+        id: 3, 
+        title: "Nueva Conversación en BudTalk",
+        content:
+            "Este sera un espacio para conversar, compartir opiniones y aprender entre todos.",
+        author : "Comunidad BudTalk",
+        strain: "General",
+        replies: 2,
+    },
+];
 
 function CommunityFeed() {
-    const [posts, setPosts] = useState([
-        {
-            id: 1,
-            title: "¿Qué opinan de Blue Dream?",
-            content: 
-                "Quiero conocer las experiencias y opiniones de la comunidad sobre esta variedad.",
-            author: "Usuario demo",
-            strain: "Blue Dream",
-            replies: 8,
-        },
-        {
-            id: 2,
-            title: "Comportamiento nuestras expreciencias",
-            content:
-                "¿Qué aspectos tienen en cuenta al comparar distintas variedades?",
-            author: "GreenLeaf",
-            strain: "Northern Lights",
-            replies: 5,
-        },
-        {
-            id: 3,
-            title: "Nueva conversación en BudTalk",
-            content:
-                "Este será un espacio para conversar, compartir opiniones y aprender entre todos.",
-            author: "Comunidad BudTalk",
-            strain: "General",
-            replies: 2,
+    const [posts, setPosts] = useState(() => {
+        const savedPosts = localStorage.getItem("budtalk-posts");
+
+        if (!savedPosts) {
+            return initialPosts;
         }
-    ]);
+        
+        try {
+            const parsedPosts = JSON.parse(savedPosts);
+
+            return Array.isArray(parsedPosts) 
+                ? parsedPosts 
+                : initialPosts;
+        } catch {
+            return initialPosts;
+        }
+    });
 
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [strain, setStrain] = useState("General");
+
+    useEffect(() => {
+        localStorage.setItem(
+            "budtalk-posts",
+            JSON.stringify(posts)
+        );
+    }, [posts]);
 
     function handleSubmit(event){
         event.preventDefault();
