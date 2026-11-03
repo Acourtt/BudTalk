@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const initialPosts = [
     {
         id: 1,
-        title: "¿Que opinan de Blue Dream?",
+        title: "¿Qué opinan de Blue Dream?",
         content:
             "Quiero conocer las experiecias y opiniones de la comunidad sobre esta variedad.",
         author: "Usuario demo",
