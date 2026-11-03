@@ -52,6 +52,7 @@ function CommunityFeed() {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [strain, setStrain] = useState("General");
+    const [editingPostId, setEditingPostId] = useState(null);
 
     useEffect(() => {
         localStorage.setItem(
@@ -70,6 +71,20 @@ function CommunityFeed() {
             return;
         }
 
+        if (editingPostId !== null) {
+    setPosts((currentPosts) =>
+      currentPosts.map((post) =>
+        post.id === editingPostId
+          ? {
+              ...post,
+              title: cleanTitle,
+              content: cleanContent,
+              strain: strain,
+            }
+          : post
+      )
+    );
+     } else {
         const newPost = {
             id: Date.now(),
             title: cleanTitle,
@@ -80,11 +95,20 @@ function CommunityFeed() {
         };
 
         setPosts((currentPosts) => [newPost, ...currentPosts]);
+        }
 
         setTitle("");
         setContent("");
         setStrain("General")
+        setEditingPostId(null);
 
+    }
+
+    function handleEdit(post) {
+        setTitle(post.title);
+        setContent(post.content);
+        setStrain(post.strain);
+        setEditingPostId(post.id);
     }
 
     function handleDelete(postId) {
@@ -101,6 +125,12 @@ function CommunityFeed() {
         );
     }
 
+    function handleCancelEdit() {
+        setTitle("");
+        setContent("");
+        setStrain("General");
+        setEditingPostId(null);
+    }
 
     return (
         <section className="community-section" id="comunidad">
@@ -154,7 +184,18 @@ function CommunityFeed() {
                     required
                 />
 
-                <button type="submit">Publicar</button>
+                <button type="submit">
+                    {editingPostId !== null ? "Guardar cambios" : "Publicar"}
+                </button>
+
+                {editingPostId !== null && (
+                    <button
+                        type="button"
+                        onClick={handleCancelEdit}
+                    >
+                        Cancelar edición
+                    </button>
+                )}
             </form>
 
             <div className="post-list">
@@ -174,6 +215,12 @@ function CommunityFeed() {
                                 onClick={() => handleDelete(post.id)}
                                 >
                                 Eliminar
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => handleEdit(post)}
+                            >
+                                Editar
                             </button>
                         </div>
                     </article>
